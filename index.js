@@ -68,8 +68,13 @@ app.get("/shopping_cart", (req, res) => {
   		}
   	})
   }
-  res.render("shopping_cart", { title: "Bundle Added", bundleAdded: { month_supply: req.query.supply, price:req.query.price } });
+  let cartItems = CartItem.find({}).exec( (err, cartItems) => {
+  		res.render("shopping_cart", { cartItems : cartItems });
+	});
+  //res.render("shopping_cart", { title: "Bundle Added", bundleAdded: { month_supply: req.query.supply, price:req.query.price } });
 });
+
+
 
 /**
  * Server Activation

@@ -7,7 +7,26 @@ block layout-content
       div.Title
         h1 Shopping Cart
         h3 timestamp
-      pre.Details=JSON.stringify(bundleAdded, null, 2)
+            table
+                thead
+                    tr
+                        th Description
+                        th Price
+                        th Quantity
+                        th Extended
+                tbody
+                    each cartItem in cartItems
+                        tr
+                            td= cartItem.itemDescription
+                            td= cartItem.price
+                            td= cartItem.quantity
+                            td= cartItem.extended
+                tfoot
+                    tr
+                        td(colspan="2")
+                        td Order Total
+                        td TOTAL HERE
+
     div.NavButtons
       a(href="/")
         div.NavButton Back
