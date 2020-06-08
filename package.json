@@ -1,0 +1,14 @@
+{
+  "name": "qa_dev_test",
+  "version": "1.0.0",
+  "description": "small node/express app to create product bundle selection functionality",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./index.js"
+  },
+  "author": "Luke DeRienzo",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
