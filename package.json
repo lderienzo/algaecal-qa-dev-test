@@ -4,11 +4,17 @@
   "description": "small node/express app to create product bundle selection functionality",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.js"
+    "dev": "nodemon ./index.js",
+    "ui": "browser-sync start --proxy=localhost:8000 --files='**/*.css, **/*.pug, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
   },
   "author": "Luke DeRienzo",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.26.7",
     "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^3.0.0"
   }
 }
