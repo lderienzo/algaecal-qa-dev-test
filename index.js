@@ -29,6 +29,11 @@ app.get("/", (req, res) => {
   res.render("index", { title: "AlgaeCal Product Bundle Specials" });
 });
 
+app.get("/shopping_cart", (req, res) => {
+  console.log(req.query)
+  res.render("shopping_cart", { title: "Bundle Added", bundleAdded: { month_supply: req.query.supply, price:req.query.price } });
+});
+
 /**
  * Server Activation
  */

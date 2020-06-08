@@ -1,0 +1,13 @@
+extends layout
+
+block layout-content
+  div.View.UserView
+    h1.Banner AlgaeCal QA Developer Test
+    div.Message
+      div.Title
+        h1 Shopping Cart
+        h3 timestamp
+      pre.Details=JSON.stringify(bundleAdded, null, 2)
+    div.NavButtons
+      a(href="/")
+        div.NavButton Back
