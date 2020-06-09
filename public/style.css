@@ -153,3 +153,8 @@ a {
   border-bottom: var(--ui-shawdow-border);
   box-shadow: var(--ui-shawdow);
 }
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}

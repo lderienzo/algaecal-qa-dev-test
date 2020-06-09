@@ -6,16 +6,16 @@ block layout-content
     div.Message
       div.Title
         h1 Shopping Cart
-        h3 timestamp
-            table
+        h3
+            table(cellpadding="20")
                 thead
                     tr
-                        th Description
-                        th Price
-                        th Quantity
-                        th Extended
+                        th(align="left") Description
+                        th(align="left") Price
+                        th(align="left") Quantity
+                        th(align="left") Extended
                 tbody
-                    each cartItem in cartItems
+                    each cartItem in cartInfo.cartItems
                         tr
                             td= cartItem.itemDescription
                             td= cartItem.price
@@ -24,8 +24,12 @@ block layout-content
                 tfoot
                     tr
                         td(colspan="2")
-                        td Order Total
-                        td total
+                        td Order Total $
+                        td #{cartInfo.total}
+
+    //div.NavButtons
+      //a(href="/empty_cart")
+        //div.NavButton Empty Cart
 
     div.NavButtons
       a(href="/")

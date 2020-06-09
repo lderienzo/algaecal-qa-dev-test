@@ -4,6 +4,7 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const path = require("path");
+const util = require('util');
 
 /**
  * App Variables
@@ -49,33 +50,20 @@ app.get("/shopping_cart", function(req, res, next) {
 	  	if (err) {
 	      return res.redirect('/');
 	    }
-
 	    console.log(docs.length);
-	    res.render('shopping_cart', { cartItems: docs });
+	    const result = calculatTotal(docs);
+		console.log(result);
+	    res.render('shopping_cart', { cartInfo: { cartItems: docs, total: result } } );
 	  }); 
 	}, 1000);
 });
 
-
-function calculatTotal() {
-	  let total = 0;
-	CartItem.aggregate([
-		{
-			$group: {
-				_id: null,
-				total: {
-					$sum: "$extended"
-				}
-			}
-		}
-	])
+function calculatTotal(docs) {
+	let total = docs.reduce( function(tot, cartItem) {
+    		return tot + cartItem.extended;
+		}, 0);
+	return total;
 }
-// app.get("/shopping_cart", (req, res) => {
-//   	CartItem.find({}).exec( (err, cartItems) => {
-//   		res.render("shopping_cart", { cartItems : cartItems});
-// 	});
-// });
-
 
 app.get("/add_to_cart/:supply/:price", (req, res) => {
   if (req.params.supply && req.params.price) {
@@ -105,6 +93,16 @@ app.get("/add_to_cart/:supply/:price", (req, res) => {
   }
    res.redirect('/shopping_cart');
 });
+
+
+app.get("/empty_cart", (req, res) => { 
+	CartItem.deleteMany([], function (err) {
+  		if (err) console.log(err);
+  		console.log("Successful deletion");
+	});
+	res.redirect('/');
+});
+
 
 /**
  * Server Activation
