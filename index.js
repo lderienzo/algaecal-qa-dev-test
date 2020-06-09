@@ -42,39 +42,69 @@ app.get("/", (req, res) => {
   res.render("index", { title: "AlgaeCal Product Bundle Specials" });
 });
 
-app.get("/shopping_cart", (req, res) => {
-  console.log(req.query)
-  if (req.query.supply && req.query.price) {
+
+app.get("/shopping_cart", function(req, res, next) {
+
+ setTimeout(() => {CartItem.find(function(err, docs) {
+	  	if (err) {
+	      return res.redirect('/');
+	    }
+
+	    console.log(docs.length);
+	    res.render('shopping_cart', { cartItems: docs });
+	  }); 
+	}, 1000);
+});
+
+
+function calculatTotal() {
+	  let total = 0;
+	CartItem.aggregate([
+		{
+			$group: {
+				_id: null,
+				total: {
+					$sum: "$extended"
+				}
+			}
+		}
+	])
+}
+// app.get("/shopping_cart", (req, res) => {
+//   	CartItem.find({}).exec( (err, cartItems) => {
+//   		res.render("shopping_cart", { cartItems : cartItems});
+// 	});
+// });
+
+
+app.get("/add_to_cart/:supply/:price", (req, res) => {
+  if (req.params.supply && req.params.price) {
   	// query if item is already present if so, update by incrementing quantity by one and adding to price extended
-  	CartItem.findOne({ supplyAmount: req.query.supply }).then(cartItem =>{
+  	CartItem.findOne({ supply: req.params.supply }).then(cartItem => {
   		if (cartItem) {
   			cartItem.quantity++;
-  			cartItem.extended += Number(req.query.price); 
+  			cartItem.extended += Number(req.params.price); 
   			cartItem
 			  .save()
 			  .catch(err => console.log(err));
-  		}
-  		else {			
+  		} else {			
 		  	const newCartItem = new CartItem({
-		  		supplyAmount: req.query.supply,
-		        itemDescription: req.query.supply + " Month Supply of AlgaeCal Plus & Strontium Boost",
-		        price: req.query.price,
+		  		supply: req.params.supply,
+		        itemDescription: req.params.supply + " Month Supply of AlgaeCal Plus & Strontium Boost",
+		        price: req.params.price,
 		        quantity: 1,
-		        extended: req.query.price
+		        extended: req.params.price
 		      });
 		  	newCartItem
 			  .save()
 			  .catch(err => console.log(err));
   		}
   	})
+  } else {
+    return res.status(400)
   }
-  let cartItems = CartItem.find({}).exec( (err, cartItems) => {
-  		res.render("shopping_cart", { cartItems : cartItems });
-	});
-  //res.render("shopping_cart", { title: "Bundle Added", bundleAdded: { month_supply: req.query.supply, price:req.query.price } });
+   res.redirect('/shopping_cart');
 });
-
-
 
 /**
  * Server Activation

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const CartItemSchema = new Schema({
-  supplyAmount: {
+  supply: {
     type: Number,
     required: true
   },
