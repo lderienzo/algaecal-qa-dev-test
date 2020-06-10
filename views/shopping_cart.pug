@@ -26,11 +26,9 @@ block layout-content
                         td(colspan="2")
                         td Order Total $
                         td #{cartInfo.total}
-
-    //div.NavButtons
-      //a(href="/empty_cart")
-        //div.NavButton Empty Cart
-
     div.NavButtons
-      a(href="/")
+      a(href="/empty_cart")
+        div.NavButton Empty Cart
+    div.NavButtons
+      a(id="back" href="/")
         div.NavButton Back

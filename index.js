@@ -96,11 +96,12 @@ app.get("/add_to_cart/:supply/:price", (req, res) => {
 
 
 app.get("/empty_cart", (req, res) => { 
-	CartItem.deleteMany([], function (err) {
-  		if (err) console.log(err);
-  		console.log("Successful deletion");
-	});
-	res.redirect('/');
+	CartItem.deleteMany({}).then(function() { 
+    	console.log("Data deleted"); // Success 
+    	res.redirect('/');
+	}).catch(function(error){ 
+    	console.log(error); // Failure 
+	}); 
 });
 
 
