@@ -6,7 +6,6 @@ block layout-content
     div.Message
       div.Title
         h1 AlgaeCal Product Bundle Specials
-        // h3 QA Developer Test
       span.Details Select Bundle To Test!
       map(name="add_to_cart_buttons")
         area(id="3_month" href="/add_to_cart/3/244" alt="3_month_bundle" shape="rect" coords="140,372,287,405")
@@ -14,5 +13,5 @@ block layout-content
         area(id="12_month" href="/add_to_cart/12/768" alt="12_month_bundle" shape="rect" coords="707,372,850,405")
       img(src="algaecal_product_bundles.png" width="986" height="473" usemap="#add_to_cart_buttons")
     div.NavButtons
-      a(href="/shopping_cart")
+      a(id="view_cart" href="/shopping_cart")
         div.NavButton View Cart

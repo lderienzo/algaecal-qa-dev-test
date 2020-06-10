@@ -19,15 +19,15 @@ block layout-content
                         tr
                             td= cartItem.itemDescription
                             td= cartItem.price
-                            td= cartItem.quantity
+                            td(id=cartItem.supply)= cartItem.quantity
                             td= cartItem.extended
                 tfoot
                     tr
                         td(colspan="2")
                         td Order Total $
-                        td #{cartInfo.total}
+                        td(id="total") #{cartInfo.total}
     div.NavButtons
-      a(href="/empty_cart")
+      a(id="empty_cart" href="/empty_cart")
         div.NavButton Empty Cart
     div.NavButtons
       a(id="back" href="/")
