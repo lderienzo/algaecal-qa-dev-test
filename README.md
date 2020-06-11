@@ -9,7 +9,8 @@ the customer's shopping cart and then takes them to the shopping cart page to co
 
 The test calls for the writing of a functional test to prove the “add to cart” button works on the bundles. 
 
-This project is the first half of two parts submitted for the AlgaėCal "QA Developer Test".
+This project is the first half of two parts submitted for the AlgaėCal "QA Developer Test". 
+The second part being the Java Selenium Webdriver project located in the https://github.com/lderienzo/AlgaeCalBundlePromotionTester repository.
 
 This project is a small node.js/express/mongodb app using the pug template engine for view rendering. 
 It consists only of the product bundle page containing the "add to cart" buttons along with the shopping cart page.
