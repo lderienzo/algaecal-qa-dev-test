@@ -16,3 +16,9 @@ It consists only of the product bundle page containing the "add to cart" buttons
 
 The purpose of this applicaiton is to serve as the "test subject" for the second half of this project, which is a suite of 
 Selenium WebDriver tests used to perform the required functional testing.
+
+Below are the pages of this application:
+
+<img width="1434" alt="algaecal_qa_dev_tst_bundle_screen" src="https://user-images.githubusercontent.com/42414954/84341790-ffd49f00-ab71-11ea-989c-35d84ca6edce.png">
+
+<img width="1431" alt="algaecal_qa_dev_tst_shopping_cart_screen" src="https://user-images.githubusercontent.com/42414954/84341806-082cda00-ab72-11ea-9107-000cea6a0f79.png">
