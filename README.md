@@ -12,7 +12,7 @@ The test calls for the writing of a functional test to prove the “add to cart�
 This project is the first half of two parts submitted for the AlgaėCal "QA Developer Test".
 
 This project is a small node.js/express/mongodb app using the pug template engine for view rendering. 
-It consists only of the product bundle page containing the "add to cart" buttons and the shopping cart page.
+It consists only of the product bundle page containing the "add to cart" buttons along with the shopping cart page.
 
 The purpose of this applicaiton is to serve as the "test subject" for the second half of this project, which is a suite of 
 Selenium WebDriver tests used to perform the required functional testing.
