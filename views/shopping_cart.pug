@@ -11,15 +11,15 @@ block layout-content
                 thead
                     tr
                         th(align="left") Description
-                        th(align="left") Price
                         th(align="left") Quantity
+                        th(align="left") Unit Price
                         th(align="left") Extended
                 tbody
                     each cartItem in cartInfo.cartItems
                         tr
                             td= cartItem.itemDescription
-                            td= cartItem.price
                             td(id=cartItem.supply)= cartItem.quantity
+                            td= cartItem.price
                             td= cartItem.extended
                 tfoot
                     tr

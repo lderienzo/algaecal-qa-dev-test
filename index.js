@@ -50,9 +50,7 @@ app.get("/shopping_cart", function(req, res, next) {
 	  	if (err) {
 	      return res.redirect('/');
 	    }
-	    console.log(docs.length);
 	    const result = calculatTotal(docs);
-		console.log(result);
 	    res.render('shopping_cart', { cartInfo: { cartItems: docs, total: result } } );
 	  }); 
 	}, 1000);
