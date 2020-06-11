@@ -1,6 +1,6 @@
 # algaecal-qa-dev-test
 
-The premis of the test is that the design team has come up with a page 
+The premis of the test is that the AlgaėCal design team has come up with a page 
 listing the businesse's core products being sold in three differnt packages, or "bundles".
 
 The page lists product bundles for 3, 6, and 12 month supplies of AlgaėCal Plus with Strontium Boost, 
